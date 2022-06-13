@@ -1,12 +1,8 @@
 const inProgress = [
   {
-    title: 'World Happiness Report',
-    subtitle: 'landmark survey of global happiness'
+    title: 'UI Engineer Spide Graph',
+    subtitle: 'my technical progression in data visualization'
   },
-  {
-    title: 'BART Ridership',
-    subtitle: 'daily station-to-station ridership map'
-  }
 ]
 
 const published = [
