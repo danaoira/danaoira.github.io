@@ -26,13 +26,15 @@ const computation = 'https://en.wikipedia.org/wiki/Theory_of_computation'
 const lists = {
   current: [
     {
-      link: noodle,
-      role: 'UI Engineer',
-      org: 'Noodle.ai',
-      desc: `(we're hiring!)`
+      desc: `Looking for opportunities!`
     }
   ],
   former: [
+    {
+      link: noodle,
+      role: 'UI Engineer',
+      org: 'Noodle.ai'
+    },
     {
       link: wd,
       role: 'Engineer Intern',

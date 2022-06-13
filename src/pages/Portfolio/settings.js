@@ -1,6 +1,6 @@
 const inProgress = [
   {
-    title: 'UI Engineer Spide Graph',
+    title: 'UI Engineer Spider Graph',
     subtitle: 'my technical progression in data visualization'
   },
 ]

@@ -59,7 +59,7 @@ class App extends Component {
         <Router>
           <Menu>
             <Title>Dana Oira</Title>
-            <Subtitle>Data Visualization<br />Software Engineer</Subtitle>
+            <Subtitle>Data Visualization<br />UI Engineer</Subtitle>
             <List>
               <ListItem>
                 <RouterLink to="/portfolio">Portfolio</RouterLink>
