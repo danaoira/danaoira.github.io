@@ -1,7 +1,7 @@
 import { UI_SELECT_PAGE } from './actions'
 
 const initialState = {
-  page: null
+  page: null,
 }
 
 export default (state = initialState, { type, payload = {} }) => {
@@ -9,7 +9,7 @@ export default (state = initialState, { type, payload = {} }) => {
     case UI_SELECT_PAGE:
       return {
         ...state,
-        page: payload.page
+        page: payload.page,
       }
 
     default:

@@ -12,6 +12,7 @@ const uci = 'http://publichealth.uci.edu/ph/_home/'
 const acm = 'https://www.acm.org/'
 const wibd = 'https://www.womeninbigdata.org/'
 const sfcma = 'https://www.sfcivicmusic.org/'
+const sfrs = 'http://www.sfrosesociety.org/'
 
 const react = 'http://reactjs.org'
 const redux = 'https://redux.js.org/'
@@ -26,24 +27,24 @@ const computation = 'https://en.wikipedia.org/wiki/Theory_of_computation'
 const lists = {
   current: [
     {
-      desc: `Looking for opportunities!`
-    }
+      desc: `Looking for opportunities!`,
+    },
   ],
   former: [
     {
       link: noodle,
       role: 'UI Engineer',
-      org: 'Noodle.ai'
+      org: 'Noodle.ai',
     },
     {
       link: wd,
       role: 'Engineer Intern',
-      org: 'Western Digital'
+      org: 'Western Digital',
     },
     {
       link: codazen,
       role: 'Web Developer',
-      org: 'Codazen'
+      org: 'Codazen',
     },
     // {
     //   link: csufmse,
@@ -53,28 +54,32 @@ const lists = {
     {
       link: csuf,
       role: 'Grad Student',
-      org: 'CSUF Computer Science'
+      org: 'CSUF Computer Science',
     },
     {
       link: uci,
       role: 'Undergrad',
-      org: 'UCI Public Health'
-    }
+      org: 'UCI Public Health',
+    },
   ],
   associations: [
     {
       link: acm,
-      org: 'Association for Computing Machinery' 
+      org: 'Association for Computing Machinery',
     },
     {
       link: wibd,
-      org: 'Women in Big Data'
+      org: 'Women in Big Data',
     },
     {
       link: sfcma,
-      org: 'San Francisco Civic Music Association'
-    }
-  ]
+      org: 'San Francisco Civic Music Association',
+    },
+    {
+      link: sfrs,
+      org: 'San Francisco Rose Society',
+    },
+  ],
 }
 
 export default {
@@ -103,5 +108,5 @@ export default {
   graphtheory,
   computation,
 
-  lists
+  lists,
 }

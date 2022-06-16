@@ -117,13 +117,4 @@ const Paragraph = styled.div`
   margin-top: 1.6em;
 `
 
-export {
-  Wrapper,
-  AppWrapper,
-  Menu,
-  Title,
-  Subtitle,
-  List,
-  Link,
-  Paragraph
-}
+export { Wrapper, AppWrapper, Menu, Title, Subtitle, List, Link, Paragraph }

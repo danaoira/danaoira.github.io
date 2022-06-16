@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
 import { Subtitle, Paragraph } from '../../utils/style'
-import {
-  Grid,
-  AccentFont,
-  DefaultFont,
-  ColorGrid,
-  Section
-} from './style'
+import { theme } from '../../utils/theme'
+import { Grid, AccentFont, DefaultFont, ColorGrid, Section } from './style'
 
 const Color = ({ name, color, hex }) => (
   <div width={'100%'} height={'5em'}>
-    <div style={{ width: '100%', height: '5em', backgroundColor: `${color}`, border: 'solid 1px #fff' }}></div>
-    <div style={{ textAlign: 'center', width: '100%', fontFamily: `${theme.type.accent.fontFamily}` }}>
+    <div
+      style={{
+        width: '100%',
+        height: '5em',
+        backgroundColor: `${color}`,
+        border: 'solid 1px #fff',
+      }}
+    />
+    <div
+      style={{
+        textAlign: 'center',
+        width: '100%',
+        fontFamily: `${theme.type.accent.fontFamily}`,
+      }}
+    >
       <div>{name}</div>
       <div>{hex}</div>
     </div>

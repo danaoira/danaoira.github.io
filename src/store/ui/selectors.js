@@ -1,5 +1,3 @@
-const getSelectedPage = (state) => state.ui ? state.ui.page : 'null'
+const getSelectedPage = (state) => (state.ui ? state.ui.page : 'null')
 
-export {
-  getSelectedPage
-}
+export { getSelectedPage }

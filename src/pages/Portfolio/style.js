@@ -18,16 +18,17 @@ const Grid = styled.div`
 const Tile = styled.div`
   font-family: ${theme.type.accent.fontFamily};
   background: ${theme.color.pink};
-  color: ${props => props.wip ? theme.color.white : theme.color.black};
+  color: ${(props) => (props.wip ? theme.color.white : theme.color.black)};
   font-weight: ${theme.type.fontWeight.normal};
   border: solid 1px ${theme.color.pink};
-  background: ${props => props.image ? `url(${require('../../images/' + props.image)})` : null};
+  background: ${(props) =>
+    props.image ? `url(${require('../../images/' + props.image)})` : null};
   height: 36vh;
   display: table;
   width: 100%;
 
   :hover {
-    cursor: ${props => props.wip ? 'not-allowed' : 'pointer'};
+    cursor: ${(props) => (props.wip ? 'not-allowed' : 'pointer')};
   }
 
   > div {
@@ -75,11 +76,4 @@ const Link = styled.a`
   text-decoration: none;
 `
 
-export {
-  Grid,
-  Tile,
-  Title,
-  Subtitle,
-  Detail,
-  Link
-}
+export { Grid, Tile, Title, Subtitle, Detail, Link }

@@ -1,5 +1,3 @@
 import About from './view'
 
-export {
-  About
-}
+export { About }

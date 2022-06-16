@@ -4,11 +4,9 @@ const uiSelectPage = (page) => {
   return {
     type: UI_SELECT_PAGE,
     payload: {
-      page
-    }
+      page,
+    },
   }
 }
 
-export {
-  uiSelectPage
-}
+export { uiSelectPage }

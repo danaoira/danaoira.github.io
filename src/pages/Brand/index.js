@@ -1,5 +1,3 @@
 import Brand from './view'
 
-export {
-  Brand
-}
+export { Brand }

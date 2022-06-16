@@ -15,9 +15,10 @@ const Grid2Col = styled.div`
 
   @media (min-width: 1024px) {
     display: grid;
-    grid-template-areas: 'about current'
-                         'about former'
-                         'about associations';
+    grid-template-areas:
+      'about current'
+      'about former'
+      'about associations';
     grid-auto-columns: 1fr;
     column-gap: 3em;
     row-gap: 2em;
@@ -85,5 +86,5 @@ export {
   ListItem,
   Link,
   SideNote,
-  Avatar
+  Avatar,
 }

@@ -1,20 +1,21 @@
-const theme = {}
+let theme = {}
 
 theme.color = {
   pink: '#EEDEDE',
   gray: '#CDCDCD',
   black: '#454545',
   white: '#FFFFFF',
-  yellow: '#FFFF00'
+  yellow: '#FFFF00',
 }
 
 theme.type = {
   fontFamily: "'Raleway', sans-serif",
   accent: {
-    fontFamily: "'Noto Serif TC', serif"
+    fontFamily: "'Libre Baskerville', serif",
+    // fontFamily: "'Noto Serif TC', serif"
   },
   default: {
-    fontFamily: "'Raleway', sans-serif"
+    fontFamily: "'Raleway', sans-serif",
   },
   fontSize: [
     '9px',
@@ -27,7 +28,7 @@ theme.type = {
     '44px',
     '55px',
     '66px',
-    '88px'
+    '88px',
   ],
   lineHeight: [
     '12px',
@@ -48,8 +49,8 @@ theme.type = {
     book: 400,
     medium: 500,
     bold: 700,
-    black: 800
-  }
+    black: 800,
+  },
 }
 
 export default theme

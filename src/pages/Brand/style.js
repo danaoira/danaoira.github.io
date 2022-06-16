@@ -1,4 +1,3 @@
-
 import styled from 'styled-components'
 import { theme } from '../../utils'
 
@@ -47,10 +46,4 @@ const Section = styled.section`
   }
 `
 
-export {
-  Grid,
-  AccentFont,
-  DefaultFont,
-  ColorGrid,
-  Section
-}
+export { Grid, AccentFont, DefaultFont, ColorGrid, Section }

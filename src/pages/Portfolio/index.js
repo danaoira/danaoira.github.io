@@ -1,5 +1,3 @@
 import Portfolio from './view'
 
-export {
-  Portfolio
-}
+export { Portfolio }
