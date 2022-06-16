@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import {
-  Grid,
-  Tile,
-  Title,
-  Subtitle,
-  Detail,
-  Link
-} from './style'
+import { Grid, Tile, Title, Subtitle, Detail, Link } from './style'
 import { inProgress, published } from './settings'
 
 class About extends Component {
@@ -16,16 +9,16 @@ class About extends Component {
 
     elem.style.opacity = 0
     window.requestAnimationFrame(function() {
-      elem.style.transition = "opacity 1200ms"
+      elem.style.transition = 'opacity 1000ms'
       elem.style.opacity = 1
     })
   }
-  
+
   render() {
     return (
       <Grid>
-        {inProgress.map(d => (
-          <Tile wip>
+        {inProgress.map((d) => (
+          <Tile wip key={d.title}>
             <div>
               <Title>{d.title}</Title>
               <Subtitle>{d.subtitle}</Subtitle>
@@ -33,8 +26,8 @@ class About extends Component {
             </div>
           </Tile>
         ))}
-        {published.map(d => (
-          <Link href={d.link}>
+        {published.map((d) => (
+          <Link key={d.title} href={d.link}>
             <Tile image={d.image} style={d.style}>
               <Detail>
                 <Title>{d.title}</Title>

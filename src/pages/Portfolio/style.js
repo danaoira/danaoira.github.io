@@ -64,7 +64,7 @@ const Detail = styled.div`
   height: 100%;
   background: ${theme.color.pink};
   opacity: 0;
-  transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
 
   :hover {
     opacity: 1;

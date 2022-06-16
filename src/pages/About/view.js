@@ -15,7 +15,7 @@ import {
 
 const LinkSection = ({ data, title }) => {
   return (
-    <Section>
+    <Section key={title}>
       <Title>{title}</Title>
       <List>
         {data.map((d) => (
@@ -29,20 +29,13 @@ const LinkSection = ({ data, title }) => {
     </Section>
   )
 }
-
-const AvatarSection = () => (
-  <Section>
-    <Avatar src={require('../../images/danaoira.jpg')} />
-  </Section>
-)
-
 class About extends Component {
   componentDidMount() {
     var elem = ReactDOM.findDOMNode(this)
 
     elem.style.opacity = 0
     window.requestAnimationFrame(function() {
-      elem.style.transition = 'opacity 1200ms'
+      elem.style.transition = 'opacity 1000ms'
       elem.style.opacity = 1
     })
   }
@@ -93,7 +86,9 @@ class About extends Component {
         <LinkSection data={links.lists.current} title={'Current'} />
         <LinkSection data={links.lists.former} title={'Former'} />
         <LinkSection data={links.lists.associations} title={'Associations'} />
-        <AvatarSection />
+        <Section>
+          <Avatar src={require('../../images/danaoira.jpg')} />
+        </Section>
       </Grid2Col>
     )
   }

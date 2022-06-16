@@ -67,7 +67,7 @@ const List = styled.ul`
     font-size: 0.8em;
     text-decoration: none;
     border-bottom: solid 2px ${theme.color.pink};
-    transition: border-bottom 0.5s ease-in-out;
+    transition: border-bottom 0.25s ease-in-out;
 
     :hover {
       color: ${theme.color.black};
@@ -92,7 +92,7 @@ const Link = styled.a`
   font-size: 0.8em;
   text-decoration: none;
   border-bottom: solid 2px ${theme.color.pink};
-  transition: border-bottom 0.5s ease-in-out;
+  transition: border-bottom 0.25s ease-in-out;
 
   :hover {
     color: ${theme.color.black};
