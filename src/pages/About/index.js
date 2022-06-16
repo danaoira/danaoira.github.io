@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react'
 import { links } from '../../utils'
 import {
   Grid2Col,
