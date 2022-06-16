@@ -40,8 +40,9 @@ const Subtitle = styled.h2`
   @media (min-width: 800px) {
     display: block;
     color: ${theme.color.black};
-    font-family: ${theme.type.default.fontFamily};
+    font-family: ${theme.type.accent.fontFamily};
     font-weight: ${theme.type.fontWeight.extraLight};
+    font-style: italic;
     font-size: 1.5em;
     text-decoration: none;
     letter-spacing: 1px;

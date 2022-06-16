@@ -11,7 +11,8 @@ theme.color = {
 theme.type = {
   fontFamily: "'Raleway', sans-serif",
   accent: {
-    fontFamily: "'Libre Baskerville', serif",
+    fontFamily: "'Coromorant Garamond', serif",
+    // fontFamily: "'Libre Baskerville', serif",
     // fontFamily: "'Noto Serif TC', serif"
   },
   default: {
