@@ -7,9 +7,14 @@ const inProgress = [
 
 const published = [
   {
-    title: 'UI Engineer Spider Chart',
-    subtitle: 'D3.js, React',
     route: '/portfolio/spider-chart',
+    image: 'career-progression.png',
+    style: {
+      backgroundPosition: '15% bottom',
+      backgroundSize: '140%',
+    },
+    title: 'My UI Engineer Career Progression',
+    subtitle: 'SVG, React',
   },
   {
     link: 'http://bl.ocks.org/danaoira/6b271c84d8a22789b6145ff1e82d8eb4',

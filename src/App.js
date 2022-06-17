@@ -12,7 +12,7 @@ import combinedReducer from './store/combinedReducer'
 import combinedEpics from './store/combinedEpics'
 import { Menu, Title, Subtitle, List, Link } from './utils/style'
 import { links } from './utils'
-import { About, Portfolio, SpiderChart } from './pages'
+import { About, Portfolio, CareerProgression } from './pages'
 
 const epicMiddleware = createEpicMiddleware()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -79,7 +79,7 @@ class App extends Component {
             <Route
               exact
               path="/portfolio/spider-chart"
-              component={SpiderChart}
+              component={CareerProgression}
             />
             {/* <Route path="/unt-ebola" component={UntEbola} /> */}
           </Main>
