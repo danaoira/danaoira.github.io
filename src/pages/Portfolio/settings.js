@@ -1,15 +1,15 @@
 const inProgress = [
   // {
-  //   title: 'UI Engineer Spider Graph',
+  //   title: 'UI Engineer Spider Chart',
   //   subtitle: 'my technical progression in data visualization',
   // },
 ]
 
 const published = [
   {
-    title: 'UI Engineer Spider Graph',
+    title: 'UI Engineer Spider Chart',
     subtitle: 'D3.js, React',
-    route: '/portfolio/spider-graph',
+    route: '/portfolio/spider-chart',
   },
   {
     link: 'http://bl.ocks.org/danaoira/6b271c84d8a22789b6145ff1e82d8eb4',

@@ -1,6 +1,6 @@
 import About from './About'
 import Brand from './Brand'
 import Portfolio from './Portfolio'
-import SpiderGraph from './SpiderGraph'
+import SpiderChart from './SpiderChart'
 
-export { About, Brand, Portfolio, SpiderGraph }
+export { About, Brand, Portfolio, SpiderChart }

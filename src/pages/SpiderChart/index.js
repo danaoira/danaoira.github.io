@@ -57,7 +57,7 @@ const vennData = {
   },
 }
 
-const SpiderGraph = () => {
+const SpiderChart = () => {
   let ref = useRef(null)
   let [width, setWidth] = useState(720)
   let [height, setHeight] = useState(720)
@@ -219,4 +219,4 @@ const SpiderGraph = () => {
   )
 }
 
-export default SpiderGraph
+export default SpiderChart
