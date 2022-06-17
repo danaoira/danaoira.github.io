@@ -83,7 +83,41 @@ const SpiderGraph = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect width="100%" height="100%" fill={theme.color.pink} />
-        <g>
+        <g transform={`translate(${width / 2}, 64)`}>
+          <text
+            x="0"
+            y="0"
+            style={{
+              fontFamily: theme.type.accent.fontFamily,
+              fontSize: theme.type.fontSize[6],
+              fill: theme.color.black,
+              textAnchor: 'middle',
+            }}
+          >
+            The Design Technology Skillset
+          </text>
+          <text
+            x="0"
+            y="32"
+            style={{
+              fontFamily: theme.type.accent.fontFamily,
+              fontSize: theme.type.fontSize[3],
+              fill: theme.color.black,
+              textAnchor: 'middle',
+              fontStyle: 'italic',
+            }}
+          >
+            by{' '}
+            <a
+              href="http://ericknudtson.com/ux-design-technologist.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Eric Knudtson
+            </a>
+          </text>
+        </g>
+        <g transform={`translate(${radius * 0.75}, 96)`}>
           <g>
             <circle
               cx={radius}
@@ -157,28 +191,28 @@ const SpiderGraph = () => {
               </text>
             ))}
           </g>
-        </g>
 
-        <g>
-          <clipPath id="set1">
-            <circle cx={radius} cy={radius} r={255} />
-          </clipPath>
-          <clipPath id="set2" clipPath="url('#set1')">
-            <circle
-              cx={radius}
-              cy={radius}
-              r={255}
-              transform={`translate(${radius * 1.6}, 0)`}
+          <g>
+            <clipPath id="set1">
+              <circle cx={radius} cy={radius} r={255} />
+            </clipPath>
+            <clipPath id="set2" clipPath="url('#set1')">
+              <circle
+                cx={radius}
+                cy={radius}
+                r={255}
+                transform={`translate(${radius * 1.6}, 0)`}
+              />
+            </clipPath>
+            <rect
+              clipPath="url('#set2')"
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              fill={theme.color.pink}
             />
-          </clipPath>
-          <rect
-            clipPath="url('#set2')"
-            x="0"
-            y="0"
-            width="100%"
-            height="100%"
-            fill={theme.color.pink}
-          />
+          </g>
         </g>
       </svg>
     </Grid>
