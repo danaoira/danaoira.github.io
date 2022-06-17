@@ -10,7 +10,7 @@ const published = [
     route: '/portfolio/spider-chart',
     image: 'career-progression.png',
     style: {
-      backgroundPosition: '15% bottom',
+      backgroundPosition: '-15% bottom',
       backgroundSize: '140%',
     },
     title: 'My UI Engineer Career Progression',
