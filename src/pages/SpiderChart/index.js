@@ -141,6 +141,7 @@ const SpiderChart = () => {
             </text>
             {vennData.uxDesign.skills.map((d, i) => (
               <text
+                key={d}
                 x={radius}
                 y={radius * 0.65 + i * parseFloat(theme.type.lineHeight[4])}
                 style={{
@@ -178,6 +179,7 @@ const SpiderChart = () => {
             </text>
             {vennData.digitalTechnology.skills.map((d, i) => (
               <text
+                key={d}
                 x={radius}
                 y={radius * 0.65 + i * parseFloat(theme.type.lineHeight[4])}
                 style={{
