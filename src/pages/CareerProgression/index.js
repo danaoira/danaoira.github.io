@@ -16,6 +16,25 @@ const Grid = styled.div`
   }
 `
 
+const Div = styled.div`
+  font-family: ${theme.type.accent.fontFamily};
+  font-size: ${theme.type.fontSize[4]};
+  line-height: ${theme.type.lineHeight[4]};
+  padding: 0 12vw;
+`
+
+const Link = styled.a`
+  color: ${theme.color.black};
+  text-decoration: none;
+  border-bottom: solid 2px ${theme.color.pink};
+  transition: border-bottom 0.25s ease-in-out;
+
+  :hover {
+    background: ${theme.color.white};
+    border-bottom: solid 2px ${theme.color.white};
+  }
+`
+
 // const getContentSize = (ref) => {
 //   if (!ref || !ref.current) return [null, null]
 //   const s = [ref.current.clientWidth, ref.current.clientHeight]
@@ -78,8 +97,26 @@ const SpiderChart = () => {
 
   return (
     <Grid ref={ref}>
+      <Div>
+        It seemed like a very long time ago that I was curious what it meant to
+        be a Design Technologist. I was working as a UI Engineer at Noodle AI
+        when the team was renamed and that was the first time I had heard of the
+        term.
+      </Div>
+      <Div>
+        As a typical engineer, I went to the best resource I could use to help
+        me find answers & my search brought me to Eric Knudtson's post,
+        <Link
+          href="http://ericknudtson.com/ux-design-technologist.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontStyle: 'italic', marginLeft: '4px' }}
+        >
+          What is a UX Design Technologist?
+        </Link>
+      </Div>
       <svg
-        viewBox={`0 0 ${width} ${height}`}
+        viewBox={`0 0 ${width} ${radius * 5}`}
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect width="100%" height="100%" fill={theme.color.pink} />
@@ -217,6 +254,82 @@ const SpiderChart = () => {
                 fill={theme.color.pink}
               />
             </g>
+          </g>
+        </g>
+
+        <g transform={`translate(${width / 2 - radius}, ${radius * 2.5})`}>
+          <g transform={`translate(${radius}, 64)`} style={{ display: 'none' }}>
+            <text
+              x="0"
+              y="0"
+              style={{
+                fontFamily: theme.type.accent.fontFamily,
+                fontSize: theme.type.fontSize[6],
+                fill: theme.color.black,
+                textAnchor: 'middle',
+              }}
+            >
+              UI Engineer Tech Stack
+            </text>
+          </g>
+          <g transform={`translate(0, 96)`}>
+            {[5, 4, 3, 2, 1, 0].map((d, i) => (
+              <circle
+                cx={radius}
+                cy={radius}
+                r={d !== 0 ? radius * 0.2 * d : 4}
+                fill={i === 0 ? 'rgba(255, 255, 255, 0.6)' : 'none'}
+                stroke={d !== 0 ? theme.color.white : theme.color.pink}
+                strokeWidth="2"
+              />
+            ))}
+            <circle
+              cx={radius}
+              cy={radius}
+              r={3}
+              fill="rgba(255, 255, 255, 1)"
+            />
+
+            <circle
+              cx={radius}
+              cy={0}
+              r={6}
+              fill="rgba(255, 255, 255, 1)"
+              stroke={theme.color.pink}
+              strokeWidth="2"
+            />
+            <circle
+              cx={radius * 1.75}
+              cy={radius * 0.25}
+              r={6}
+              fill="rgba(255, 255, 255, 1)"
+              stroke={theme.color.pink}
+              strokeWidth="2"
+            />
+            <circle
+              cx={radius * 2}
+              cy={radius}
+              r={6}
+              fill="rgba(255, 255, 255, 1)"
+              stroke={theme.color.pink}
+              strokeWidth="2"
+            />
+            <circle
+              cx={radius}
+              cy={radius * 2}
+              r={6}
+              fill="rgba(255, 255, 255, 1)"
+              stroke={theme.color.pink}
+              strokeWidth="2"
+            />
+            <circle
+              cx={0}
+              cy={radius}
+              r={6}
+              fill="rgba(255, 255, 255, 1)"
+              stroke={theme.color.pink}
+              strokeWidth="2"
+            />
           </g>
         </g>
       </svg>
