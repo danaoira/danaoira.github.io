@@ -1,11 +1,21 @@
 const inProgress = [
-  {
-    title: 'UI Engineer Spider Graph',
-    subtitle: 'my technical progression in data visualization',
-  },
+  // {
+  //   title: 'UI Engineer Spider Chart',
+  //   subtitle: 'my technical progression in data visualization',
+  // },
 ]
 
 const published = [
+  {
+    route: '/portfolio/spider-chart',
+    image: 'career-progression.png',
+    style: {
+      backgroundPosition: '-15% bottom',
+      backgroundSize: '140%',
+    },
+    title: 'My UI Engineer Career Progression',
+    subtitle: 'SVG, React',
+  },
   {
     link: 'http://bl.ocks.org/danaoira/6b271c84d8a22789b6145ff1e82d8eb4',
     image: 'exoplanets.png',
