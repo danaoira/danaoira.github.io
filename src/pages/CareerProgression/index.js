@@ -38,19 +38,13 @@ const Link = styled.a`
   }
 `
 
-// const getContentSize = (ref) => {
-//   if (!ref || !ref.current) return [null, null]
-//   const s = [ref.current.clientWidth, ref.current.clientHeight]
-//   const computed = getComputedStyle(ref.current)
-//   return [
-//     s[0] - parseFloat(computed.paddingLeft) - parseFloat(computed.paddingRight),
-//     s[1] - parseFloat(computed.paddingTop) - parseFloat(computed.paddingBottom),
-//   ]
-// }
-
-const spiderLabelOffset = scaleQuantile()
+const labelTextAnchor = scaleQuantile()
   .domain([-256, 0, 256])
   .range(['end', 'middle', 'start'])
+
+const labelAlignmentBaseline = scaleQuantile()
+  .domain([-256, 0, 256])
+  .range(['baseline', 'middle', 'hanging'])
 
 const SpiderChart = () => {
   let ref = useRef(null)
@@ -68,9 +62,10 @@ const SpiderChart = () => {
     { year: '2018', title: 'HTML/CSS', value: 4 },
   ]
 
-  const radialLine = data
-    .map((d, i) => [(Math.PI / 4) * i, d.value * radius * 0.2])
-    .concat([[0, data[0].value * radius * 0.2]])
+  const radialLine = data.map((d, i) => [
+    (Math.PI / 4) * i,
+    d.value * radius * 0.2,
+  ])
 
   const radial = lineRadial()(radialLine)
 
@@ -129,6 +124,7 @@ const SpiderChart = () => {
           <g transform={`translate(0, 96)`}>
             {[5, 4, 3, 2, 1, 0].map((d, i) => (
               <circle
+                key={d}
                 cx={radius}
                 cy={radius}
                 r={d !== 0 ? radius * 0.2 * d : 4}
@@ -153,7 +149,7 @@ const SpiderChart = () => {
             {data.map((d, i) => {
               const [cx, cy] = pointRadial((Math.PI / 4) * i, 5 * radius * 0.2)
               return (
-                <g transform={`translate(${radius}, ${radius})`}>
+                <g key={d.title} transform={`translate(${radius}, ${radius})`}>
                   <circle
                     cx={cx}
                     cy={cy}
@@ -163,14 +159,14 @@ const SpiderChart = () => {
                     strokeWidth="2"
                   />
                   <text
-                    x={cx * 1.07}
-                    y={cy * 1.07}
+                    x={cx * 1.05}
+                    y={cy * 1.05}
                     style={{
                       fontFamily: theme.type.default.fontFamily,
                       fontSize: theme.type.fontSize[2],
                       fill: theme.color.black,
-                      textAnchor: spiderLabelOffset(Math.round(cx)),
-                      alignmentBaseline: 'middle',
+                      textAnchor: labelTextAnchor(Math.round(cx)),
+                      alignmentBaseline: labelAlignmentBaseline(Math.round(cy)),
                     }}
                   >
                     {d.title}

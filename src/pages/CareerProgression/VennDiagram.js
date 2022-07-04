@@ -173,7 +173,7 @@ const VennDiagram = ({ radius, width }) => (
 )
 
 VennDiagram.propTypes = {
-  radius: PropTypes.string.isRequired,
+  radius: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   width: PropTypes.number.isRequired,
 }
 
