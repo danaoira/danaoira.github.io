@@ -1,3 +1,5 @@
+import { scaleQuantile } from 'd3-scale'
+import { lineRadial, pointRadial } from 'd3-shape'
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { theme } from '../../utils'
@@ -46,24 +48,41 @@ const Link = styled.a`
 //   ]
 // }
 
+const spiderLabelOffset = scaleQuantile()
+  .domain([-256, 0, 256])
+  .range(['end', 'middle', 'start'])
+
 const SpiderChart = () => {
   let ref = useRef(null)
   let [width, setWidth] = useState(720)
   let [height, setHeight] = useState(720)
   let [radius, setRadius] = useState(256)
+  const data = [
+    { year: '2018', title: 'JavaScript', value: 3 },
+    { year: '2018', title: 'React', value: 3 },
+    { year: '2018', title: 'Redux', value: 2 },
+    { year: '2018', title: 'D3', value: 3 },
+    { year: '2018', title: 'Jest', value: 1 },
+    { year: '2018', title: 'Git', value: 4 },
+    { year: '2018', title: 'Figma', value: 1 },
+    { year: '2018', title: 'HTML/CSS', value: 4 },
+  ]
 
-  useEffect(
-    () => {
-      if (!ref || !ref.current) return
-      const computed = getComputedStyle(ref.current)
-      const parsedWidth = parseFloat(computed.width)
-      const parsedHeight = parseFloat(computed.height)
-      setWidth(parsedWidth)
-      setHeight(Math.min(parsedHeight, height))
-      if (width / 2 < radius) setRadius(width / 4)
-    },
-    [ref]
-  )
+  const radialLine = data
+    .map((d, i) => [(Math.PI / 4) * i, d.value * radius * 0.2])
+    .concat([[0, data[0].value * radius * 0.2]])
+
+  const radial = lineRadial()(radialLine)
+
+  useEffect(() => {
+    if (!ref || !ref.current) return
+    const computed = getComputedStyle(ref.current)
+    const parsedWidth = parseFloat(computed.width)
+    const parsedHeight = parseFloat(computed.height)
+    setWidth(parsedWidth)
+    setHeight(Math.min(parsedHeight, height))
+    if (width / 2 < radius) setRadius(width / 4)
+  }, [ref])
 
   return (
     <Grid ref={ref}>
@@ -93,7 +112,7 @@ const SpiderChart = () => {
         <VennDiagram radius={radius} width={width} />
 
         <g transform={`translate(${width / 2 - radius}, ${radius * 2.5})`}>
-          <g transform={`translate(${radius}, 64)`}>
+          <g transform={`translate(${radius}, 50)`}>
             <text
               x="0"
               y="0"
@@ -125,46 +144,40 @@ const SpiderChart = () => {
               fill="rgba(255, 255, 255, 1)"
             />
 
-            <circle
-              cx={radius}
-              cy={0}
-              r={6}
-              fill="rgba(255, 255, 255, 1)"
-              stroke={theme.color.pink}
-              strokeWidth="2"
+            <path
+              d={radial}
+              fill="rgba(255, 255, 255, 0.75)"
+              transform={`translate(${radius}, ${radius})`}
             />
-            <circle
-              cx={radius * 1.75}
-              cy={radius * 0.25}
-              r={6}
-              fill="rgba(255, 255, 255, 1)"
-              stroke={theme.color.pink}
-              strokeWidth="2"
-            />
-            <circle
-              cx={radius * 2}
-              cy={radius}
-              r={6}
-              fill="rgba(255, 255, 255, 1)"
-              stroke={theme.color.pink}
-              strokeWidth="2"
-            />
-            <circle
-              cx={radius}
-              cy={radius * 2}
-              r={6}
-              fill="rgba(255, 255, 255, 1)"
-              stroke={theme.color.pink}
-              strokeWidth="2"
-            />
-            <circle
-              cx={0}
-              cy={radius}
-              r={6}
-              fill="rgba(255, 255, 255, 1)"
-              stroke={theme.color.pink}
-              strokeWidth="2"
-            />
+
+            {data.map((d, i) => {
+              const [cx, cy] = pointRadial((Math.PI / 4) * i, 5 * radius * 0.2)
+              return (
+                <g transform={`translate(${radius}, ${radius})`}>
+                  <circle
+                    cx={cx}
+                    cy={cy}
+                    r={6}
+                    fill="rgba(255, 255, 255, 1)"
+                    stroke={theme.color.pink}
+                    strokeWidth="2"
+                  />
+                  <text
+                    x={cx * 1.07}
+                    y={cy * 1.07}
+                    style={{
+                      fontFamily: theme.type.default.fontFamily,
+                      fontSize: theme.type.fontSize[2],
+                      fill: theme.color.black,
+                      textAnchor: spiderLabelOffset(Math.round(cx)),
+                      alignmentBaseline: 'middle',
+                    }}
+                  >
+                    {d.title}
+                  </text>
+                </g>
+              )
+            })}
           </g>
         </g>
       </svg>
