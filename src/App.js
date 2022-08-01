@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
 import { createEpicMiddleware } from 'redux-observable'
 import {
   BrowserRouter as Router,
+  Routes,
   Route,
   Link as RouterLink,
 } from 'react-router-dom'
@@ -73,15 +75,16 @@ class App extends Component {
             </List>
           </Menu>
           <Main>
-            <Route exact path="/" component={Portfolio} />
-            <Route exact path="/about/" component={About} />
-            <Route exact path="/portfolio" component={Portfolio} />
-            <Route
-              exact
-              path="/portfolio/spider-chart"
-              component={CareerProgression}
-            />
-            {/* <Route path="/unt-ebola" component={UntEbola} /> */}
+            <Routes>
+              <Route path="/" element={<Portfolio />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/portfolio" element={<Portfolio />} />
+              <Route
+                path="/portfolio/career-progression"
+                element={<CareerProgression />}
+              />
+              {/* <Route path="/unt-ebola" component={UntEbola} /> */}
+            </Routes>
           </Main>
         </Router>
       </Provider>

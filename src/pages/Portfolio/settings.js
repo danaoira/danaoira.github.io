@@ -7,7 +7,7 @@ const inProgress = [
 
 const published = [
   {
-    route: '/portfolio/spider-chart',
+    route: '/portfolio/career-progression',
     image: 'career-progression.png',
     style: {
       backgroundPosition: '-15% bottom',

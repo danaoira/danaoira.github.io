@@ -53,12 +53,12 @@ const lists = {
     // },
     {
       link: csuf,
-      role: 'Grad Student',
+      role: 'M.S. Computer Science',
       org: 'CSUF Computer Science',
     },
     {
       link: uci,
-      role: 'Undergrad',
+      role: 'B.A. Public Health Policy',
       org: 'UCI Public Health',
     },
   ],
@@ -82,7 +82,7 @@ const lists = {
   ],
 }
 
-export default {
+const links = {
   github,
   linkedin,
 
@@ -110,3 +110,5 @@ export default {
 
   lists,
 }
+
+export default links
