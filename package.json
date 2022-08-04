@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
-    "d3": "^7.6.1",
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.1.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,7 +34,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "jest-watch-typeahead": "^0.6.5"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!d3|d3-array|internmap)"
+    ]
   },
   "homepage": "https://danaoira.net"
 }

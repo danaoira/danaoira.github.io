@@ -100,7 +100,7 @@ const SpiderChart = () => {
   const [height, setHeight] = useState(1024)
   const [radius, setRadius] = useState(256)
   const [year] = useState('2022')
-  const [years, setYears] = useState(null)
+  // const [years, setYears] = useState(null)
 
   const radialLine = spiderData
     .filter((d) => d.year === year)
@@ -118,7 +118,7 @@ const SpiderChart = () => {
     if (width / 2 < radius) setRadius(width / 4)
   }, [ref, height, radius, width])
 
-  useEffect(() => setYears(uniq(spiderData, (d) => d.year)), [])
+  // useEffect(() => setYears(uniq(spiderData, (d) => d.year)), [])
 
   return (
     <Grid ref={ref}>

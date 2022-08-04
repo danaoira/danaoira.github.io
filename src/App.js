@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { configureStore } from '@reduxjs/toolkit'
+// import { configureStore } from '@reduxjs/toolkit'
 import { createEpicMiddleware } from 'redux-observable'
 import {
   BrowserRouter as Router,
@@ -22,6 +22,9 @@ let store = createStore(
   combinedReducer,
   composeEnhancers(applyMiddleware(epicMiddleware))
 )
+// let store = configureStore({
+//   store:
+// })
 epicMiddleware.run(combinedEpics)
 
 const Main = styled.div`
@@ -33,7 +36,7 @@ const Main = styled.div`
 `
 
 const ListItem = (props) => (
-  <React.Fragment>
+  <>
     {props.href ? (
       <li>
         <Link {...props}>{props.children}</Link>
@@ -41,7 +44,7 @@ const ListItem = (props) => (
     ) : (
       <li>{props.children}</li>
     )}
-  </React.Fragment>
+  </>
 )
 
 class App extends Component {
