@@ -1,37 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { theme } from '../../utils'
-
-const vennData = {
-  uxDesign: {
-    title: 'User Experience Design',
-    skills: [
-      'Information Architecture',
-      'Product Design',
-      'Service Design',
-      'Interaction Design',
-      'Visual Design',
-      'UI Design',
-      'Usability Engineering',
-      'Perception, Cognition, Psychology',
-      'Human Computer Interaction',
-    ],
-  },
-  digitalTechnology: {
-    title: 'Digital Technology',
-    skills: [
-      'Software Architecture',
-      'Software Development',
-      'Software Testing',
-      'Software Development Lifecycle',
-      'UI Technology',
-      'Cloud Computing',
-      'Cyber Security',
-      'Programming Languages',
-      'Databases & Modeling',
-    ],
-  },
-}
+import { vennData } from './data'
 
 const VennDiagram = ({ radius, width }) => (
   <g transform={`translate(${(width - radius * 3.6) / 2}, 0)`}>

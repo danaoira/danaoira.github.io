@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { scaleQuantile } from 'd3-scale'
 import { lineRadial, pointRadial } from 'd3-shape'
+import { uniq } from 'lodash'
 import { theme } from '../../utils'
 import VennDiagram from './VennDiagram'
-import { uniq } from 'lodash'
+import { spiderData } from './data'
 
 const Grid = styled.div`
   display: flex;
@@ -47,60 +48,13 @@ const labelAlignmentBaseline = scaleQuantile()
   .domain([-256, 0, 256])
   .range(['baseline', 'middle', 'hanging'])
 
-const spiderData = [
-  { year: '2018', title: 'JavaScript', value: 2 },
-  { year: '2018', title: 'React', value: 2 },
-  { year: '2018', title: 'Redux', value: 1 },
-  { year: '2018', title: 'D3', value: 2 },
-  { year: '2018', title: 'Jest', value: 1 },
-  { year: '2018', title: 'Git', value: 2 },
-  { year: '2018', title: 'Figma', value: 1 },
-  { year: '2018', title: 'HTML/CSS', value: 4 },
-
-  { year: '2019', title: 'JavaScript', value: 3 },
-  { year: '2019', title: 'React', value: 3 },
-  { year: '2019', title: 'Redux', value: 2 },
-  { year: '2019', title: 'D3', value: 3 },
-  { year: '2019', title: 'Jest', value: 1 },
-  { year: '2019', title: 'Git', value: 3 },
-  { year: '2019', title: 'Figma', value: 2 },
-  { year: '2019', title: 'HTML/CSS', value: 4 },
-
-  { year: '2020', title: 'JavaScript', value: 3 },
-  { year: '2020', title: 'React', value: 3 },
-  { year: '2020', title: 'Redux', value: 3 },
-  { year: '2020', title: 'D3', value: 3 },
-  { year: '2020', title: 'Jest', value: 2 },
-  { year: '2020', title: 'Git', value: 4 },
-  { year: '2020', title: 'Figma', value: 2 },
-  { year: '2020', title: 'HTML/CSS', value: 5 },
-
-  { year: '2021', title: 'JavaScript', value: 4 },
-  { year: '2021', title: 'React', value: 4 },
-  { year: '2021', title: 'Redux', value: 4 },
-  { year: '2021', title: 'D3', value: 4 },
-  { year: '2021', title: 'Jest', value: 2 },
-  { year: '2021', title: 'Git', value: 5 },
-  { year: '2021', title: 'Figma', value: 3 },
-  { year: '2021', title: 'HTML/CSS', value: 5 },
-
-  { year: '2022', title: 'JavaScript', value: 5 },
-  { year: '2022', title: 'React', value: 5 },
-  { year: '2022', title: 'Redux', value: 4 },
-  { year: '2022', title: 'D3', value: 5 },
-  { year: '2022', title: 'Jest', value: 3 },
-  { year: '2022', title: 'Git', value: 5 },
-  { year: '2022', title: 'Figma', value: 3 },
-  { year: '2022', title: 'HTML/CSS', value: 5 },
-]
-
-const SpiderChart = () => {
+const CareerProgression = () => {
   const ref = useRef(null)
   const [width, setWidth] = useState(720)
   const [height, setHeight] = useState(1024)
   const [radius, setRadius] = useState(256)
-  const [year] = useState('2022')
-  // const [years, setYears] = useState(null)
+  const [year, setYear] = useState('2022')
+  const [years, setYears] = useState(null)
 
   const radialLine = spiderData
     .filter((d) => d.year === year)
@@ -118,7 +72,7 @@ const SpiderChart = () => {
     if (width / 2 < radius) setRadius(width / 4)
   }, [ref, height, radius, width])
 
-  // useEffect(() => setYears(uniq(spiderData, (d) => d.year)), [])
+  useEffect(() => setYears(uniq(spiderData, (d) => d.year)), [spiderData])
 
   return (
     <Grid ref={ref}>
@@ -162,7 +116,7 @@ const SpiderChart = () => {
               UI Engineer Tech Stack
             </text>
           </g>
-          <g transform={`translate(0, 256)`}>
+          <g transform={`translate(0, 160)`}>
             {[5, 4, 3, 2, 1, 0].map((d, i) => (
               <circle
                 key={d}
@@ -183,7 +137,7 @@ const SpiderChart = () => {
 
             <path
               d={radial}
-              fill="rgba(255, 255, 255, 0.75)"
+              fill="rgba(255, 255, 255, 0.65)"
               transform={`translate(${radius}, ${radius})`}
             />
 
@@ -219,10 +173,18 @@ const SpiderChart = () => {
               )
             })}
           </g>
+          <g transform={`translate(700, 220)`}>
+            {years &&
+              uniq(years.map((d) => d.year)).map((date, i) => (
+                <text y={i * 100} onClick={() => setYear(date)}>
+                  {date}
+                </text>
+              ))}
+          </g>
         </g>
       </svg>
     </Grid>
   )
 }
 
-export default SpiderChart
+export default CareerProgression
