@@ -5,7 +5,7 @@ import { vennData } from './data'
 
 const VennDiagram = ({ radius, width }) => (
   <g transform={`translate(${(width - radius * 3.6) / 2}, 0)`}>
-    <g transform={`translate(${radius * 1.8}, 64)`}>
+    <g transform={`translate(${radius * 1.8}, 72)`}>
       <text
         x="0"
         y="0"
@@ -40,7 +40,7 @@ const VennDiagram = ({ radius, width }) => (
       </text>
     </g>
 
-    <g transform={`translate(0, 96)`}>
+    <g transform={`translate(0, ${radius * 0.5})`}>
       <g>
         <circle
           cx={radius}

@@ -21,6 +21,11 @@ const Grid = styled.div`
   }
 `
 
+const NavLink = styled.text`
+  cursor: pointer;
+  font-family: ${theme.type.accent.fontFamily};
+`
+
 // const Div = styled.div`
 //   font-family: ${theme.type.accent.fontFamily};
 //   font-size: ${theme.type.fontSize[4]};
@@ -50,10 +55,11 @@ const labelAlignmentBaseline = scaleQuantile()
 
 const CareerProgression = () => {
   const ref = useRef(null)
+  const lineRef = useRef(null)
   const [width, setWidth] = useState(720)
-  const [height, setHeight] = useState(1024)
+  const [height, setHeight] = useState(720)
   const [radius, setRadius] = useState(256)
-  const [year, setYear] = useState('2022')
+  const [year, setYear] = useState(null)
   const [years, setYears] = useState(null)
 
   const radialLine = spiderData
@@ -74,26 +80,12 @@ const CareerProgression = () => {
 
   useEffect(() => setYears(uniq(spiderData, (d) => d.year)), [spiderData])
 
+  useEffect(() => {
+    if (!year && years) setYear(years[years.length - 1].year)
+  }, [years, lineRef])
+
   return (
     <Grid ref={ref}>
-      {/* <Div>
-        It seemed like a very long time ago that I was curious what it meant to
-        be a Design Technologist. I was working as a UI Engineer at Noodle AI
-        when the team was renamed and that was the first time I had heard of the
-        term.
-      </Div>
-      <Div>
-        As a typical engineer, I went to the best resource I could use to help
-        me find answers & my search brought me to Eric Knudtson's post,
-        <Link
-          href="http://ericknudtson.com/ux-design-technologist.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontStyle: 'italic', marginLeft: '4px' }}
-        >
-          What is a UX Design Technologist?
-        </Link>
-      </Div> */}
       <svg
         viewBox={`0 0 ${width} ${radius * 6}`}
         xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +93,7 @@ const CareerProgression = () => {
         <rect width="100%" height="100%" fill={theme.color.pink} />
         <VennDiagram radius={radius} width={width} />
 
-        <g transform={`translate(${width / 2 - radius}, ${radius * 2.5})`}>
+        <g transform={`translate(${width / 2 - radius}, ${radius * 3})`}>
           <g transform={`translate(${radius}, 64)`}>
             <text
               x="0"
@@ -175,10 +167,26 @@ const CareerProgression = () => {
           </g>
           <g transform={`translate(700, 220)`}>
             {years &&
-              uniq(years.map((d) => d.year)).map((date, i) => (
-                <text y={i * 100} onClick={() => setYear(date)}>
-                  {date}
-                </text>
+              uniq(years.map((d) => d.year)).map((yr, i) => (
+                <g key={yr} transform={`translate(0, ${i * 100})`}>
+                  <NavLink
+                    y={0}
+                    onClick={() => setYear(yr)}
+                    ref={year === yr ? lineRef : null}
+                  >
+                    {yr}
+                  </NavLink>
+                  {yr === year && (
+                    <line
+                      x1={0}
+                      y1={10}
+                      x2={lineRef.current?.getBBox().width || 34}
+                      y2={10}
+                      stroke={theme.color.white}
+                      strokeWidth={2}
+                    />
+                  )}
+                </g>
               ))}
           </g>
         </g>
