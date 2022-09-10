@@ -61,11 +61,11 @@ const CareerProgression = () => {
     if (width / 2 < radius) setRadius(width / 4)
   }, [ref, height, radius, width])
 
-  useEffect(() => setYears(uniq(spiderData, (d) => d.year)), [spiderData])
+  useEffect(() => setYears(uniq(spiderData, (d) => d.year)), [])
 
   useEffect(() => {
     if (!year && years) setYear(years[years.length - 1].year)
-  }, [years, lineRef])
+  }, [years, year, lineRef])
 
   return (
     <Grid ref={ref}>
