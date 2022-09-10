@@ -1,17 +1,18 @@
 {
-  "main.css": "/static/css/main.27e1562c.chunk.css",
-  "main.js": "/static/js/main.29f0c442.chunk.js",
-  "main.js.map": "/static/js/main.29f0c442.chunk.js.map",
-  "static/js/1.ce5e9dc2.chunk.js": "/static/js/1.ce5e9dc2.chunk.js",
-  "static/js/1.ce5e9dc2.chunk.js.map": "/static/js/1.ce5e9dc2.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/media/danaoira.jpg": "/static/media/danaoira.7810b649.jpg",
-  "static/media/curriculum-graph-visualizer.png": "/static/media/curriculum-graph-visualizer.f025be66.png",
-  "static/media/exoplanets.png": "/static/media/exoplanets.262424e2.png",
-  "static/media/nations.png": "/static/media/nations.64c1d890.png",
-  "static/css/main.27e1562c.chunk.css.map": "/static/css/main.27e1562c.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.13864729e1600660ccdc7210aac325da.js": "/precache-manifest.13864729e1600660ccdc7210aac325da.js",
-  "service-worker.js": "/service-worker.js"
+  "files": {
+    "main.css": "/static/css/main.99662164.css",
+    "main.js": "/static/js/main.18549194.js",
+    "static/media/curriculum-graph-visualizer.png": "/static/media/curriculum-graph-visualizer.9c520f37c9bd7489a530.png",
+    "static/media/exoplanets.png": "/static/media/exoplanets.aee61131811acea168c9.png",
+    "static/media/nations.png": "/static/media/nations.c9a03fc3b5a23b908dd9.png",
+    "static/media/career-progression.png": "/static/media/career-progression.f2eb639c6455cb8577d8.png",
+    "static/media/danaoira.jpg": "/static/media/danaoira.23872f3da50b0767276e.jpg",
+    "index.html": "/index.html",
+    "main.99662164.css.map": "/static/css/main.99662164.css.map",
+    "main.18549194.js.map": "/static/js/main.18549194.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99662164.css",
+    "static/js/main.18549194.js"
+  ]
 }
