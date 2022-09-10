@@ -14,7 +14,7 @@ const published = [
       backgroundSize: '140%',
     },
     title: 'My UI Engineer Career Progression',
-    subtitle: 'SVG, React',
+    subtitle: 'In Progress - SVG, React',
   },
   {
     link: 'http://bl.ocks.org/danaoira/6b271c84d8a22789b6145ff1e82d8eb4',

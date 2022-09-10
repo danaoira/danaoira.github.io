@@ -12,6 +12,13 @@ const Grid = styled.div`
   flex-direction: column;
   min-height: 50vh;
 
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: 1fr;
@@ -20,30 +27,6 @@ const Grid = styled.div`
     margin: 28px 0;
   }
 `
-
-const NavLink = styled.text`
-  cursor: pointer;
-  font-family: ${theme.type.accent.fontFamily};
-`
-
-// const Div = styled.div`
-//   font-family: ${theme.type.accent.fontFamily};
-//   font-size: ${theme.type.fontSize[4]};
-//   line-height: ${theme.type.lineHeight[4]};
-//   padding: 0 12vw;
-// `
-
-// const Link = styled.a`
-//   color: ${theme.color.black};
-//   text-decoration: none;
-//   border-bottom: solid 2px ${theme.color.pink};
-//   transition: border-bottom 0.25s ease-in-out;
-
-//   :hover {
-//     background: ${theme.color.white};
-//     border-bottom: solid 2px ${theme.color.white};
-//   }
-// `
 
 const labelTextAnchor = scaleQuantile()
   .domain([-256, 0, 256])
@@ -169,19 +152,23 @@ const CareerProgression = () => {
             {years &&
               uniq(years.map((d) => d.year)).map((yr, i) => (
                 <g key={yr} transform={`translate(0, ${i * 100})`}>
-                  <NavLink
+                  <text
                     y={0}
                     onClick={() => setYear(yr)}
                     ref={year === yr ? lineRef : null}
+                    style={{
+                      cursor: 'pointer',
+                      fontFamily: theme.type.accent.fontFamily,
+                    }}
                   >
                     {yr}
-                  </NavLink>
+                  </text>
                   {yr === year && (
                     <line
                       x1={0}
-                      y1={10}
+                      y1={6}
                       x2={lineRef.current?.getBBox().width || 34}
-                      y2={10}
+                      y2={6}
                       stroke={theme.color.white}
                       strokeWidth={2}
                     />
