@@ -18,6 +18,7 @@ const react = 'http://reactjs.org'
 const redux = 'https://redux.js.org/'
 const styledcomponents = 'https://www.styled-components.com/'
 
+const dhtml = 'https://en.wikipedia.org/wiki/Dynamic_HTML'
 const r = 'https://www.r-project.org/'
 const epidemiology = 'https://en.wikipedia.org/wiki/Epidemiology'
 const hci = 'https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction'
@@ -102,6 +103,7 @@ const links = {
   redux,
   styledcomponents,
 
+  dhtml,
   r,
   epidemiology,
   hci,

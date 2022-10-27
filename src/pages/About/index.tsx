@@ -1,3 +1,4 @@
+// import { StringifyOptions } from 'querystring'
 import React from 'react'
 import { links } from '../../utils'
 import {
@@ -12,22 +13,33 @@ import {
   Avatar,
 } from './style'
 
-const LinkSection = ({ data, title }) => {
-  return (
-    <Section key={title}>
-      <Title>{title}</Title>
-      <List>
-        {data.map((d) => (
-          <ListItem key={`${d.role}-${d.org}`}>
-            {d.role ? `${d.role} at ` : null}
-            <Link href={d.link}>{d.org}</Link>{' '}
-            {d.desc ? <SideNote>{d.desc}</SideNote> : null}
-          </ListItem>
-        ))}
-      </List>
-    </Section>
-  )
+type LinksData = {
+  link?: string,
+  desc?: string,
+  org?: string,
+  role?: string,
 }
+
+type LinkSectionProps = {
+  data: LinksData[],
+  title: string
+}
+
+const LinkSection = (props: LinkSectionProps) =>  (
+  <Section key={props.title}>
+    <Title>{props.title}</Title>
+    <List>
+      {props.data.map((d) => (
+        <ListItem key={`${d.role}-${d.org}`}>
+          {d.role ? `${d.role} at ` : null}
+          <Link href={d.link}>{d.org}</Link>{' '}
+          {d.desc ? <SideNote>{d.desc}</SideNote> : null}
+        </ListItem>
+      ))}
+    </List>
+  </Section>
+)
+
 
 const About = () => {
   return (
