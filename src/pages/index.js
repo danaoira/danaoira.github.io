@@ -1,6 +1,7 @@
 import About from './About'
 import Brand from './Brand'
-import Portfolio from './Portfolio'
 import CareerProgression from './CareerProgression'
+import Portfolio from './Portfolio'
+import TicTacToe from './TicTacToe'
 
-export { About, Brand, Portfolio, CareerProgression }
+export { About, Brand, Portfolio, CareerProgression, TicTacToe }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Grid, Tile, Title, Subtitle, Detail, Link } from './style'
-import { inProgress, published } from './settings'
+import { inProgress, published } from './data'
 
 const About = () => {
   // componentDidMount() {

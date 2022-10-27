@@ -1,11 +1,16 @@
 const inProgress = [
-  // {
-  //   title: 'UI Engineer Spider Chart',
-  //   subtitle: 'my technical progression in data visualization',
-  // },
+  {
+    title: 'Tic Tac Toe',
+    subtitle: 'line up 3 to win!',
+  },
 ]
 
 const published = [
+  {
+    route: '/portfolio/tic-tac-toe',
+    title: 'Tic Tac Toe',
+    subtitle: 'React, Algorithms',
+  },
   {
     route: '/portfolio/career-progression',
     image: 'career-progression.png',

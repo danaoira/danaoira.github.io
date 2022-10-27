@@ -14,7 +14,7 @@ import combinedReducer from './store/combinedReducer'
 import combinedEpics from './store/combinedEpics'
 import { Menu, Title, Subtitle, List, Link } from './utils/style'
 import { links } from './utils'
-import { About, Portfolio, CareerProgression } from './pages'
+import { About, Portfolio, CareerProgression, TicTacToe } from './pages'
 
 const epicMiddleware = createEpicMiddleware()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -46,6 +46,64 @@ const ListItem = (props) => (
     )}
   </>
 )
+
+/**
+ * Definition for isBadVersion()
+ *
+ * @param {integer} version number
+ * @return {boolean} whether the version is bad
+ * isBadVersion = function(version) {
+ *     ...
+ * };
+ */
+
+const version = {
+  1: false,
+  2: false,
+  3: false,
+  4: false,
+  5: false,
+  6: false,
+  7: false,
+  8: true,
+  9: true,
+  10: true,
+  11: true,
+  12: true,
+}
+
+const isBadVersion = (ver) => {
+  if (version[ver] === true) return true
+  return false
+}
+
+/**
+ * @param {function} isBadVersion()
+ * @return {function}
+ */
+const solution = (isBadVersion) => {
+  /**
+   * @param {integer} n Total versions
+   * @return {integer} The first bad version
+   */
+  return (n) => {
+    console.log({ n })
+    const recurse = (start, end) => {
+      let mid = Math.floor((start + end) / 2)
+      console.log({ start, mid, end, if: isBadVersion(mid) === true })
+
+      if (isBadVersion(mid) === true) {
+        console.log('mid is bad', mid)
+        return mid
+      }
+      return recurse(mid, end)
+    }
+
+    return recurse(1, n)
+  }
+}
+
+solution(isBadVersion)(10)
 
 class App extends Component {
   render() {
@@ -86,6 +144,7 @@ class App extends Component {
                 path="/portfolio/career-progression"
                 element={<CareerProgression />}
               />
+              <Route path="/portfolio/tic-tac-toe" element={<TicTacToe />} />
               {/* <Route path="/unt-ebola" component={UntEbola} /> */}
             </Routes>
           </Main>
