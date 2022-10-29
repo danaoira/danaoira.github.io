@@ -4,7 +4,16 @@ const initialState = {
   page: null,
 }
 
-const reducer = (state = initialState, { type, payload = {} }) => {
+type State = {
+  page: null | string
+}
+
+type Action = {
+  type: string,
+  payload: any
+}
+
+const reducer = (state: State = initialState, { type, payload = {} }: Action) => {
   switch (type) {
     case UI_SELECT_PAGE:
       return {

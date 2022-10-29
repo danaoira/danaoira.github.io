@@ -53,6 +53,10 @@
     ]
   },
   "devDependencies": {
+    "@types/d3": "^7.4.0",
+    "@types/d3-scale": "^4.0.2",
+    "@types/d3-shape": "^3.1.0",
+    "@types/lodash": "^4.14.186",
     "@types/styled-components": "^5.1.26",
     "gh-pages": "^4.0.0",
     "jest-watch-typeahead": "^0.6.5"

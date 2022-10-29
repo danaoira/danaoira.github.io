@@ -7,6 +7,12 @@ import { theme } from '../../utils'
 import VennDiagram from './VennDiagram'
 import { spiderData } from './data'
 
+type SpiderData = {
+  year: string,
+  title: string,
+  value: number
+}
+
 const Grid = styled.div`
   display: flex;
   flex-direction: column;
@@ -42,10 +48,10 @@ const CareerProgression = () => {
   const [width, setWidth] = useState(720)
   const [height, setHeight] = useState(720)
   const [radius, setRadius] = useState(256)
-  const [year, setYear] = useState(null)
-  const [years, setYears] = useState(null)
+  const [year, setYear] = useState<string | null>(null)
+  const [years, setYears] = useState<SpiderData[]>()
 
-  const radialLine = spiderData
+  const radialLine: number[][] | [] = spiderData
     .filter((d) => d.year === year)
     .map((d, i) => [(Math.PI / 4) * i, d.value * radius * 0.2])
 
@@ -61,7 +67,8 @@ const CareerProgression = () => {
     if (width / 2 < radius) setRadius(width / 4)
   }, [ref, height, radius, width])
 
-  useEffect(() => setYears(uniq(spiderData, (d) => d.year)), [])
+  useEffect(() => setYears(uniq(spiderData.filter(d => d.year))), [])
+  console.log({ years })
 
   useEffect(() => {
     if (!year && years) setYear(years[years.length - 1].year)

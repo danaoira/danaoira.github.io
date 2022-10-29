@@ -3,13 +3,19 @@ import { Subtitle, Paragraph } from '../../utils/style'
 import { theme } from '../../utils'
 import { Grid, AccentFont, DefaultFont, ColorGrid, Section } from './style'
 
-const Color = ({ name, color, hex }) => (
-  <div width={'100%'} height={'5em'}>
+type Props = {
+  name: string,
+  color: string,
+  hex: string
+}
+
+const Color = (props: Props) => (
+  <div style={{ width: '100%', height: '5em' }}>
     <div
       style={{
         width: '100%',
         height: '5em',
-        backgroundColor: `${color}`,
+        backgroundColor: `${props.color}`,
         border: 'solid 1px #fff',
       }}
     />
@@ -20,8 +26,8 @@ const Color = ({ name, color, hex }) => (
         fontFamily: `${theme.type.accent.fontFamily}`,
       }}
     >
-      <div>{name}</div>
-      <div>{hex}</div>
+      <div>{props.name}</div>
+      <div>{props.hex}</div>
     </div>
   </div>
 )
